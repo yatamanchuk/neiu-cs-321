@@ -1,5 +1,5 @@
 # **Application Name** 
-Fishing app named FishBuddy.
+Fishing app named Fishing Buddy.
 
 # **Project Topic/Objective** 
 A fishing app that would help users (beginner anglers) with general information about fishing. Users would be able to get information about fish species. Different techniques and styles of catching a specific fish would be presented to the users. The app would feature different fishing baits, how to use, and where to buy them. Fishing seasons charts and graphs that would show how good is fish during that season and what kind of species to target.
