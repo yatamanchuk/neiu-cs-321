@@ -1,4 +1,4 @@
-#**Application Name** 
+#**Application Name**# 
 Fishing app named FishBuddy.
 
 #**Project Topic/Objective** 
