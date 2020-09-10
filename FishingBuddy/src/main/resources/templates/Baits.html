@@ -11,7 +11,7 @@
     <h1>List of Baits</h1>
 
     <div class="image">
-        <img th:src="@{/images/fishing.jpg}" alt="fishing image" />
+        <img th:src="@{/images/fishing.jpg}" alt="fishing image"  />
     </div>
 
 
@@ -23,7 +23,7 @@
                 <h3>Choose Spoons:</h3>
                 <div th:each="bait : ${spoon}">
                     <input name="bait" type="checkbox" th:value="${bait.id}"/>
-                    <span th:text="${bait.name}">BAITS</span><br/>
+                    <span th:text="${bait.name}">SPOON</span><br/>
                 </div>
             </div>
             <div class="bait-group" id="jig">
