@@ -1,0 +1,36 @@
+h1 {
+    text-align:center;
+}
+img{
+    height:200px;
+    width:300px;
+}
+
+h2 {
+    text-align:center;
+
+}
+
+.grid {
+    margin-bottom:10%;
+    text-align:center;
+}
+
+
+.image {
+    text-align:center;
+    margin:auto;
+
+}
+
+.footer
+{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color:black;
+    color:aliceblue;
+    text-align:center;
+
+}
