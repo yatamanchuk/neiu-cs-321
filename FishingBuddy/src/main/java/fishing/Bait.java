@@ -7,8 +7,8 @@ public class Bait {
     private final String name;
     private final Type type;
 
-    public static enum Type {
+    public enum Type {
         SPOON, JIG, PLASTIC_BAIT, FLIES, SPINNER,
-        LIVE_BAIT;
+        LIVE_BAIT
     }
 }

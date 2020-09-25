@@ -4,11 +4,14 @@ import fishing.Bait.Type;
 import fishing.Bait;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,16 +22,28 @@ public class ListBaitsController {
 
     @GetMapping
     public String showBaits() {
+
         return "baits";
+    }
+
+    @PostMapping
+    public String processBaits(@Valid @ModelAttribute("baits") Fish design, Errors errors) {
+        if(errors.hasErrors())
+            return "baits";
+
+        return "redirect:/orders/current";
     }
 
     @ModelAttribute
     public void addAttribute (Model model){
         List<Bait> baits = creatBaitList();
-        Type [] types = Bait.Type.values();
+        Type [] types = Type.values();
         for(Type type: types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(baits, type));
         }
+
+        model.addAttribute("baits", new Fish());
+
     }
 
     private List<Bait> filterByType(List<Bait> baits, Type type) {

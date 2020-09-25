@@ -3,7 +3,7 @@
     xmlns = "http://www.w3.org/1999/xhtml"
     xmlns:th = "http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" th:href="@{styles.css}"/>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
     <meta charset="UTF-8">
     <title>Fishing Buddy</title>
 </head>
@@ -11,56 +11,70 @@
     <h1>List of Baits</h1>
 
     <div class="image">
-        <img th:src="@{/images/fishing.jpg}" alt="fishing image"  />
+        <img th:src="@{/images/fishing.jpg}" alt="fishing image" />
     </div>
 
 
 
-    <form method="POST" th:object="${bait}">
+    <form method="post" th:object = "${baits}">
         <h2>Pick baits from list you would like to buy:</h2>
+
+        <span class ="validationError"
+              th:if ="${#fields.hasErrors('baits')}"
+              th:errors="*{baits}">Bait Error</span>
+
         <div class="grid">
             <div class="bait-group" id="spoon">
                 <h3>Choose Spoons:</h3>
                 <div th:each="bait : ${spoon}">
-                    <input name="bait" type="checkbox" th:value="${bait.id}"/>
+                    <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">SPOON</span><br/>
                 </div>
             </div>
             <div class="bait-group" id="jig">
                 <h3>Choose Jigs:</h3>
                 <div th:each="bait : ${jig}">
-                    <input name="bait" type="checkbox" th:value="${bait.id}"/>
+                    <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">JIGS</span><br/>
                 </div>
             </div>
             <div class="bait-group" id="plastic_bait">
                 <h3>Choose Plastic Baits:</h3>
                 <div th:each="bait : ${plastic_bait}">
-                    <input name="bait" type="checkbox" th:value="${bait.id}"/>
+                    <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">PLASTIC_BAIT</span><br/>
                 </div>
             </div>
             <div class="bait-group" id="flies">
                 <h3>Choose Flies:</h3>
                 <div th:each="bait : ${flies}">
-                    <input name="bait" type="checkbox" th:value="${bait.id}"/>
+                    <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">FLIES</span><br/>
                 </div>
             </div>
             <div class="bait-group" id="spinner">
                 <h3>Choose Spinners:</h3>
                 <div th:each="bait : ${spinner}">
-                    <input name="bait" type="checkbox" th:value="${bait.id}"/>
+                    <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">SPINNER</span><br/>
                 </div>
             </div>
             <div class="bait-group" id="live_bait">
                 <h3>Choose Live Baits:</h3>
                 <div th:each="bait : ${live_bait}">
-                    <input name="bait" type="checkbox" th:value="${bait.id}"/>
+                    <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">LIVE_BAIT</span><br/>
                 </div>
             </div>
+        </div>
+        <div class="submit">
+            <h3>Name of User:</h3>
+            <input type="text" th:field="*{name}"/>
+            <span class ="validationError"
+                  th:if ="${#fields.hasErrors('name')}"
+                  th:errors="*{name}">Name Error</span>
+            <br/><br/>
+            <button>Submit your order</button>
         </div>
     </form>
 
