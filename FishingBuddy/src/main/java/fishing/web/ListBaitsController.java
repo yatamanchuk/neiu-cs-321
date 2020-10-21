@@ -2,6 +2,10 @@ package fishing.web;
 
 import fishing.Bait.Type;
 import fishing.Bait;
+import fishing.Fish;
+import fishing.data.BaitRepository;
+import fishing.data.FishRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -12,13 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping ("/baits")
 public class ListBaitsController {
+
+    private final BaitRepository baitRepo;
+    private final FishRepository fishRepo;
+
+    @Autowired
+    public ListBaitsController(BaitRepository baitRepo, FishRepository fishRepo) {
+        this.baitRepo = baitRepo;
+        this.fishRepo = fishRepo;
+    }
 
     @GetMapping
     public String showBaits() {
@@ -27,23 +39,27 @@ public class ListBaitsController {
     }
 
     @PostMapping
-    public String processBaits(@Valid @ModelAttribute("baits") Fish design, Errors errors) {
+    public String processBaits(@Valid @ModelAttribute("fish") Fish fish, Errors errors) {
         if(errors.hasErrors())
             return "baits";
 
+        Fish savedFish = fishRepo.save(fish);
         return "redirect:/orders/current";
     }
 
     @ModelAttribute
     public void addAttribute (Model model){
-        List<Bait> baits = creatBaitList();
+        List<Bait> baits = baitRepo.findAll();
         Type [] types = Type.values();
         for(Type type: types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(baits, type));
-        }
+       }
 
-        model.addAttribute("baits", new Fish());
+    }
 
+    @ModelAttribute (name = "fish")
+    public Fish addFishToModel() {
+        return new Fish();
     }
 
     private List<Bait> filterByType(List<Bait> baits, Type type) {
@@ -51,41 +67,5 @@ public class ListBaitsController {
                 .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
-    }
-
-
-    private List<Bait> creatBaitList() {
-        List<Bait> baits = Arrays.asList(
-                new Bait( "D", "Daredevil", Type.SPOON),
-                new Bait( "JS", "Johnson Silver Minnow", Type.SPOON),
-                new Bait( "CM", "Cast Master", Type.SPOON),
-                new Bait( "LC", "Little Cleo", Type.SPOON),
-                new Bait( "FoJ", "Football Jig", Type.JIG),
-                new Bait( "FlJ", "Flipping Jig", Type.JIG),
-                new Bait( "SJ", "Swimming Jig", Type.JIG),
-                new Bait( "APJ", "Arkey Power Jig", Type.JIG),
-                new Bait( "AFJ", "Arkey Finesse Jig", Type.JIG),
-                new Bait( "PSB", "Plastic Stick Bait", Type.PLASTIC_BAIT),
-                new Bait( "SPB", "Soft Plastic Swimming Bait", Type.PLASTIC_BAIT),
-                new Bait( "SPC", "Soft Plastic Craw", Type.PLASTIC_BAIT),
-                new Bait( "FW", "Finesse Worm", Type.PLASTIC_BAIT),
-                new Bait( "RTW", "Ribbon Tail Worm", Type.PLASTIC_BAIT),
-                new Bait( "MH", "Mayfly Hatch", Type.FLIES),
-                new Bait( "CFH", "Caddis Fly Hatch", Type.FLIES),
-                new Bait( "SH", "Stonefly Hatch", Type.FLIES),
-                new Bait( "MF", "Midges Fly", Type.FLIES),
-                new Bait( "SF", "Scuds Fly", Type.FLIES),
-                new Bait( "LF", "Leeches Fly", Type.FLIES),
-                new Bait( "KVD", "Strike King KVD", Type.SPINNER),
-                new Bait( "TeT", "Terminator T1", Type.SPINNER),
-                new Bait( "NP", "Nochols Pulsator", Type.SPINNER),
-                new Bait( "Mi", "Minnows", Type.LIVE_BAIT),
-                new Bait( "In", "Insects", Type.LIVE_BAIT),
-                new Bait( "Wo", "Worms", Type.LIVE_BAIT),
-                new Bait( "Sh", "Shrimp", Type.LIVE_BAIT),
-                new Bait( "Cr", "Crayfish", Type.LIVE_BAIT)
-        );
-
-        return baits;
     }
 }

@@ -8,7 +8,7 @@ public class Bait {
     private final Type type;
 
     public enum Type {
-        SPOON, JIG, PLASTIC_BAIT, FLIES, SPINNER,
+        SPOON, JIG, PLASTIC, FLIES, SPINNER,
         LIVE_BAIT
     }
 }
