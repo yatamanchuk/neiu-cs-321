@@ -8,7 +8,8 @@
     <title>Fishing Buddy</title>
 </head>
 <body>
-<h1>Your Order Submission</h1>
+
+    <h1>Order History</h1>
 
 <div class="image">
     <img th:src="@{/images/fishing.jpg}" alt="fishing image" />
@@ -16,22 +17,25 @@
 
 
     <div class = "order" th:each="fish: ${orders}">
-        <input name = "fish" type="hidden" th:value="${fish.name}"/>
-        <span th:text="${fish.name}">Order Name</span>
-        <br/>
-        <span th:text = "${fish.createdAt.getDayOfMonth()} + ' '
+        <p name = "fish" type="hidden" th:value="${fish.name}"><b>Order For:</b>
+            <span th:text="${fish.name}">Order Name</span></p>
+        <p class = "date"> <b>Date:</b> <span th:text = "${fish.createdAt.getDayOfMonth()} + ' '
                         + ${fish.createdAt.getMonth()} + ' '
-                        + ${fish.createdAt.getYear()}">Order Date</span>
-        <br/>
-        <div th:each="bait : ${flies}">
-            <input name="bait" type="text" th:value="${bait.name}"/>
-            <span th:text="${bait.id}">FLIES</span><br/>
-        </div>
+                        + ${fish.createdAt.getYear()}">Order Date</span></p>
 
+        <p><b>Items in Order</b></p>
+        <div th:each="bait : ${fish.baits}">
+            <p name="bait" type="text" th:value="${bait.id}">
+                <span th:text="${bait.name}">Order of Baits</span>
+            </p>
+        </div>
     </div>
+
+
 
 <div class="footer">
     <p>Copyright @2020 Slavik Atamanchuk CS-321-1</p>
 </div>
+
 </body>
 </html>
