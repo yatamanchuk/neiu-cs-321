@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="UTF-8">
+    <title>Fishing Buddy</title>
+</head>
+<body>
+<h1>Your Order Submission</h1>
+
+<div class="image">
+    <img th:src="@{/images/fishing.jpg}" alt="fishing image" />
+</div>
+
+
+    <div class = "fish" th:each="fish: ${orders}">
+        <input name = "fish" type="hidden" th:value="${fish.bait}"/>
+        <span th:text="${fish.name}">Order Name</span>
+        <br/>
+        <span th:text = "${fish.createdAt}">Order Date</span>
+        <br/>
+
+    </div>
+
+<div class="footer">
+    <p>Copyright @2020 Slavik Atamanchuk CS-321-1</p>
+</div>
+</body>
+</html>
