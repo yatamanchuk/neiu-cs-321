@@ -40,7 +40,7 @@
             </div>
             <div class="bait-group" id="plastic_bait">
                 <h3>Choose Plastic Baits:</h3>
-                <div th:each="bait : ${plastic_bait}">
+                <div th:each="bait : ${plastic}">
                     <input name="baits" type="checkbox" th:value="${bait.id}"/>
                     <span th:text="${bait.name}">PLASTIC_BAIT</span><br/>
                 </div>
@@ -74,7 +74,7 @@
                   th:if ="${#fields.hasErrors('name')}"
                   th:errors="*{name}">Name Error</span>
             <br/><br/>
-            <button>Submit your order</button>
+            <button>Submit your fish</button>
         </div>
     </form>
 

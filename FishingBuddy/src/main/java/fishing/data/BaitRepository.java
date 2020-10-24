@@ -1,14 +1,9 @@
 package fishing.data;
 
 import fishing.Bait;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
 
-public interface BaitRepository {
+public interface BaitRepository extends CrudRepository<Bait, String> {
 
-    List<Bait> findAll();
-
-    Bait findOne(String id);
-
-    Bait save(Bait bait);
 }

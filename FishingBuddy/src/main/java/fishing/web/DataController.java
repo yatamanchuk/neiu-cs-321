@@ -1,6 +1,5 @@
 package fishing.web;
 
-import fishing.Bait;
 import fishing.Fish;
 import fishing.data.BaitRepository;
 import fishing.data.FishRepository;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -31,14 +29,14 @@ public class DataController {
 
    @GetMapping
    public String showData() {
-      return "data";
+
+        return "data";
     }
 
     @ModelAttribute
     public void addBait (Model model)
     {
-        model.addAttribute("bait", Arrays.asList(Fish.class));
-        List<Bait> allData = fishRepo.findAllByOrderByPostedAtDesc();
-        model.addAttribute("posts", allData);
+        List<Fish> allData = (List<Fish>) fishRepo.findAll();
+        model.addAttribute("orders", allData);
     }
 }

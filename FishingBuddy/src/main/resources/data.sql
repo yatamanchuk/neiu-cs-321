@@ -1,8 +1,6 @@
 delete from Fish_Baits;
 delete from Fish;
 
-
-
 delete from Bait;
 insert into Bait(id, name, type)
 values( 'D', 'Daredevil', 'SPOON');
@@ -58,3 +56,4 @@ insert into Bait(id, name, type)
 values( 'Sh', 'Shrimp', 'LIVE_BAIT');
 insert into Bait(id, name, type)
 values( 'Cr', 'Crayfish', 'LIVE_BAIT');
+

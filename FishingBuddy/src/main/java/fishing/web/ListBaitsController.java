@@ -49,7 +49,7 @@ public class ListBaitsController {
 
     @ModelAttribute
     public void addAttribute (Model model){
-        List<Bait> baits = baitRepo.findAll();
+        List<Bait> baits = (List<Bait>) baitRepo.findAll();
         Type [] types = Type.values();
         for(Type type: types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(baits, type));
@@ -59,6 +59,7 @@ public class ListBaitsController {
 
     @ModelAttribute (name = "fish")
     public Fish addFishToModel() {
+
         return new Fish();
     }
 
