@@ -88,3 +88,12 @@ delete from Order [42001-200]
 2020-10-22 23:03:03 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "FISH[*]"; SQL statement:
 FISH [42000-200]
+2020-10-23 20:53:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "BAIT[*]"; expected "BACKUP, BEGIN"; SQL statement:
+BAIT [42001-200]
+2020-10-23 21:31:18 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "BAIT[*]"; expected "BACKUP, BEGIN"; SQL statement:
+BAIT [42001-200]
+2020-10-23 21:54:58 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "BAIT[*]"; expected "BACKUP, BEGIN"; SQL statement:
+BAIT [42001-200]
