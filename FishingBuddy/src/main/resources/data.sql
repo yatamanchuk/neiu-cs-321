@@ -2,6 +2,7 @@ delete from Fish_Baits;
 delete from Fish;
 
 delete from Bait;
+/*delete from User;*/
 insert into Bait(id, name, type)
 values( 'D', 'Daredevil', 'SPOON');
 insert into Bait(id, name, type)

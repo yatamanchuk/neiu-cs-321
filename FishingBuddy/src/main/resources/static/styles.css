@@ -1,5 +1,22 @@
-h1 {
+h1, .login, .registration {
     text-align:center;
+}
+
+.link {
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.link a {
+    color: crimson;
+    text-decoration: none;
+
+}
+
+.nav {
+
+    text-align: center;
 }
 img{
     height:200px;

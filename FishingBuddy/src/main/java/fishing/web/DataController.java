@@ -1,10 +1,12 @@
 package fishing.web;
 
 import fishing.Fish;
+import fishing.User;
 import fishing.data.BaitRepository;
 import fishing.data.FishRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +36,14 @@ public class DataController {
     }
 
     @ModelAttribute
-    public void addBait (Model model)
+    public void addBait (Model model, @AuthenticationPrincipal User user)
     {
         List<Fish> allData = (List<Fish>) fishRepo.findAll();
         model.addAttribute("orders", allData);
+
+        String fullName = user.getFullName();
+        model.addAttribute("fullName", fullName);
     }
+
+
 }

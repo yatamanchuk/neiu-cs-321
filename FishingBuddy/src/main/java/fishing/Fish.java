@@ -32,4 +32,7 @@ public class Fish {
 
         this.createdAt = LocalDateTime.now();
     }
+
+    @ManyToOne
+    private User user;
 }
