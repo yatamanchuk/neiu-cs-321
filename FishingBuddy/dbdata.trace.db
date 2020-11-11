@@ -97,3 +97,9 @@ BAIT [42001-200]
 2020-10-23 21:54:58 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "BAIT[*]"; expected "BACKUP, BEGIN"; SQL statement:
 BAIT [42001-200]
+2020-11-11 16:04:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FISH[*]"; SQL statement:
+SELECT * FISH [42000-200]
+2020-11-11 16:04:52 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT *  FISH[*]"; SQL statement:
+SELECT *  FISH [42000-200]

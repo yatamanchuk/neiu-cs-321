@@ -38,7 +38,7 @@ public class DataController {
     @ModelAttribute
     public void addBait (Model model, @AuthenticationPrincipal User user)
     {
-        List<Fish> allData = (List<Fish>) fishRepo.findAll();
+        List<Fish> allData = fishRepo.findAllByUser(user);
         model.addAttribute("orders", allData);
 
         String fullName = user.getFullName();

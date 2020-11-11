@@ -3,9 +3,11 @@ package fishing.web;
 import fishing.Bait.Type;
 import fishing.Bait;
 import fishing.Fish;
+import fishing.User;
 import fishing.data.BaitRepository;
 import fishing.data.FishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -39,12 +41,13 @@ public class ListBaitsController {
     }
 
     @PostMapping
-    public String processBaits(@Valid @ModelAttribute("fish") Fish fish, Errors errors) {
+    public String processBaits(@Valid @ModelAttribute("fish") Fish fish, Errors errors, @AuthenticationPrincipal User user) {
         if(errors.hasErrors())
             return "baits";
 
+        fish.addUserToFish(user);
         Fish savedFish = fishRepo.save(fish);
-        return "redirect:/orders/current";
+        return "redirect:/data";
     }
 
     @ModelAttribute

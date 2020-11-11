@@ -1,12 +1,11 @@
 package fishing;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.CreditCardNumber;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -20,10 +19,12 @@ public class Fish {
     private LocalDateTime createdAt;
 
     @NotNull(message = "Name is required")
-    @Size(min = 2, message = "Name must be at least 5 characters long")
+    @Size(min = 5, message = "Name must be at least 5 characters long")
     private String name;
 
+
     @ManyToMany(targetEntity = Bait.class)
+
     @NotEmpty(message = "You must choose at least 1 bait")
     private List<Bait> baits;
 
@@ -35,4 +36,8 @@ public class Fish {
 
     @ManyToOne
     private User user;
+
+    public void addUserToFish(User user) {
+        this.setUser(user);
+    }
 }

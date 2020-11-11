@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 public class RegistrationForm {
 
     @NotNull
-    @Size(min = 8, message = "Username must have at least 5 characters")
+    @Size(min = 5, message = "Username must have at least 5 characters")
     private String username;
 
     @NotNull

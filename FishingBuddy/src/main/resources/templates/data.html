@@ -18,6 +18,8 @@
     <img th:src="@{/images/fishing.jpg}" alt="fishing image" />
 </div>
 
+    <p class = "link"><a th:href="@{/logout}">Logout</a></p>
+
 
     <div class = "order" th:each="fish: ${orders}">
         <p name = "fish" type="hidden" th:value="${fish.name}"><b>Order For:</b>

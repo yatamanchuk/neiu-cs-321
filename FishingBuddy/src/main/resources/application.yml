@@ -1,0 +1,21 @@
+
+---
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:file:C:/Users/vasyl/OneDrive/Desktop/NEIU classes/Fall 2020/CS 321 Server Side/neiu-cs-321/FishingBuddy/dbdata
+    username: admin
+    password:
+    driver: org.h2.Driver
+
+
+fish:
+  orders:
+    pageSize: 10
