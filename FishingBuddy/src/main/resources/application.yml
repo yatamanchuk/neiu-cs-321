@@ -18,4 +18,4 @@ spring:
 
 fish:
   orders:
-    pageSize: 10
+    pageSize: 5

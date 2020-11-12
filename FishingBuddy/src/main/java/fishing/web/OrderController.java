@@ -4,6 +4,7 @@ package fishing.web;
 import fishing.Fish;
 import fishing.User;
 import fishing.data.FishRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -18,6 +19,7 @@ public class OrderController {
 
     private FishRepository fishRepo;
 
+    @Autowired
     public OrderController(FishRepository fishRepo) {
         this.fishRepo = fishRepo;
     }
