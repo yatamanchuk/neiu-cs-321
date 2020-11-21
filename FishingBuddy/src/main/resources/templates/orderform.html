@@ -3,22 +3,36 @@
       xmlns = "http://www.w3.org/1999/xhtml"
       xmlns:th = "http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.2/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
     <meta charset="UTF-8">
     <title>Fishing Buddy</title>
 </head>
 <body>
 
-<h1>Fishing Buddy</h1>
-
-<div class="image">
-    <img th:src="@{/images/fishing.jpg}" alt="fishing image"/>
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+        <h1 class="col-12 text-center">Fishing Buddy</h1>
+    </div>
+    <div class="row justify-content-center mt-4 mb-4">
+        <img th:src="@{/images/fishing.jpg}" alt="fishing image" />
+    </div>
 </div>
 
 <p class = "link"><a th:href="@{/logout}">Logout</a></p>
-<p class="link"><a th:href="@{/baits}" >New Order</a></p><br/>
+<p class="link"><a th:href="@{/baits}">New Order</a></p><br/>
 
 
 <h2>Thank you for your submission</h2>
+
+
+<div class="footer mt-5">
+    <p>Copyright @2020 Slavik Atamanchuk CS-321-1</p>
+</div>
+
+<script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.16.0/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+
 </body>
 </html>
