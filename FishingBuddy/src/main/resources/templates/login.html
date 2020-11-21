@@ -49,23 +49,29 @@
         </div>
     </div>
 
-<div class="login">
-    <div class="validationError" th:if="${param.error}">
-        Unable to login. Check your username and password.
+    <div class="login">
+        <div class="validationError" th:if="${param.error}">
+            Unable to login. Check your username and password.
+        </div>
+
+        <p>New here? Click <a th:href="@{/register}">here</a> to register</p>
+
+        <form class="container-fluid" method ="post" th:action="@{login}" id="loginForm">
+            <div class="row form-group justify-content-center">
+                <label class="col-form-label col-0 text-right font-weight-bold" for="username">Username:</label>
+                <input class="form-control col-5 col-md-2 m-2" type="text" th:name="username" id="username"/><br/><br/>
+            </div>
+
+            <div class="row form-group justify-content-center">
+                <label class="col-form-label col-0 text-right font-weight-bold" for="password">Password:</label>
+                <input class="form-control col-5 col-md-2 m-2" type="password" th:name="password" id="password"/><br/><br/>
+            </div>
+
+            <div class="row form-group justify-content-center ml-5">
+                <input class="form-control col-md-1" type="submit" value="Login"/>
+            </div>
+        </form>
     </div>
-
-    <p>New here? Click <a th:href="@{/register}">here</a> to register</p>
-
-    <form method ="post" th:action="@{login}" id="loginForm">
-        <label for="username">Username</label>
-        <input type="text" th:name="username" id="username"/><br/><br/>
-
-        <label for="password">Password:</label>
-        <input type="password" th:name="password" id="password"/><br/><br/>
-
-        <input type="submit" value="Login"/>
-    </form>
-</div>
 
     <div class="footer mt-5">
         <p>Copyright @2020 Slavik Atamanchuk CS-321-1</p>

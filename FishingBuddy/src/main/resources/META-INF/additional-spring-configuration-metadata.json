@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "fish.orders.pageSize",
+      "type": "java.lang.Integer",
+      "description": "Sets the maximum number of order to display in a list."
+  }
+] }
