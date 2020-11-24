@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments/base :: headContent"></head>
+<body>
+    <div th:replace="fragments/base :: navigation"></div>
+
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <h1 class="col-12 text-center">Welcome to Fishing Buddy</h1>
+        </div>
+        <div th:replace="fragments/base :: appImage"></div>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            <h2>Sorry! Page could not be found.</h2>
+        </div>
+    </div>
+
+    <div th:replace="fragments/base :: footer"></div>
+
+    <div th:insert="fragments/base :: script"></div>
+
+</body>
+</html>
