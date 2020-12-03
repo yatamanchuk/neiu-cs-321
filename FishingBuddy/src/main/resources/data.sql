@@ -6,7 +6,7 @@ delete from Bait;
 insert into Bait(id, name, type)
 values( 'D', 'Daredevil', 'SPOON');
 insert into Bait(id, name, type)
-values( 'JS', 'Johnson Silver Minnow', 'SPOON');
+values( 'JS', 'Silver Minnow', 'SPOON');
 insert into Bait(id, name, type)
 values( 'CM', 'Cast Master', 'SPOON');
 insert into Bait(id, name, type)

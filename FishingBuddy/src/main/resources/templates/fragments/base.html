@@ -58,10 +58,13 @@
         <p>Copyright @2020 Slavik Atamanchuk CS-321-1</p>
     </div>
 
-    <div th:fragment="script">
-        <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-        <script th:src="@{/webjars/popper.js/1.16.0/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
-    </div>
+
 </body>
+
+<th:block th:fragment="script">
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.16.0/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
+</th:block>
+
 </html>
